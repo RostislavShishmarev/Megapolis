@@ -6,7 +6,7 @@ def s_sort(list_, key=lambda x: x):
 
 
 if __name__ == '__main__':
-    with open('books.csv', encoding='utf-8') as file:
+    with open('books.txt', encoding='utf-8') as file:
         data = list(csv.reader(file, delimiter='%'))[1:]
 
     best_3 = s_sort(data, key=lambda row: -float(row[5].replace(',', '.')))[:3]

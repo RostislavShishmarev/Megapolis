@@ -8,7 +8,7 @@ def get_books_by_author(author):
     :return: list of strings with information or list
     ['Данного автора в этой библиотеке нет', ] if author is not in library
     """
-    with open('books.csv', encoding='utf-8') as file:
+    with open('books.txt', encoding='utf-8') as file:
         data = list(csv.reader(file, delimiter='%'))[1:]
 
     result = []

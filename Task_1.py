@@ -1,7 +1,7 @@
 import csv
 
 if __name__ == '__main__':
-    with open('books.csv', encoding='utf-8') as file:
+    with open('books.txt', encoding='utf-8') as file:
         data = list(csv.reader(file, delimiter='%'))[1:]
 
     ratings_dict = {}
