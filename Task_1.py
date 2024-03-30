@@ -2,7 +2,8 @@ import csv
 
 if __name__ == '__main__':
     with open('books.txt', encoding='utf-8') as file:
-        data = list(csv.reader(file, delimiter='%'))[1:]
+        data = list(csv.reader(file, delimiter='%'))[1:]  # Cut headers
+    # Rows format: 0 - id, 1 - isbn, 2 - authors, 3 - year, 4 - title, 5 - rating
 
     ratings_dict = {}
     for row in data:
@@ -10,7 +11,7 @@ if __name__ == '__main__':
         for author in authors:
             ratings_dict[author] = ratings_dict.get(author, []) + [rating]
 
-    result_data = [['authors', 'ratings_authors'], ]
+    result_data = [['authors', 'ratings_authors'], ]  # Add headers
     for author, ratings in ratings_dict.items():
         result_data.append([author, round(sum(ratings) / len(ratings), 2)])
 

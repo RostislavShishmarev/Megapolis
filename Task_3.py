@@ -5,11 +5,11 @@ def get_books_by_author(author):
     """
     Function to get books by author or list of authors (separated by ", ")
     :param author: author of the books
-    :return: list of strings with information or list
-    ['Данного автора в этой библиотеке нет', ] if author is not in library
+    :return: list of strings with information or list with message if author is not in library
     """
     with open('books.txt', encoding='utf-8') as file:
-        data = list(csv.reader(file, delimiter='%'))[1:]
+        data = list(csv.reader(file, delimiter='%'))[1:]  # Cut headers
+    # Rows format: 0 - id, 1 - isbn, 2 - authors, 3 - year, 4 - title, 5 - rating
 
     result = []
     for row in data:

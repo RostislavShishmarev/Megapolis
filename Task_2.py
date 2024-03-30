@@ -38,6 +38,7 @@ def s_sort(list_, key=lambda x: x, start=0, end=None):
     """
     if end is None:
         end = len(list_) - 1
+
     if start + 1 == end:
         els = [list_[start], list_[end]]
         return [min(els, key=key), max(els, key=key)]
@@ -52,7 +53,10 @@ def s_sort(list_, key=lambda x: x, start=0, end=None):
 
 if __name__ == '__main__':
     with open('books.txt', encoding='utf-8') as file:
-        data = list(csv.reader(file, delimiter='%'))[1:]
+        data = list(csv.reader(file, delimiter='%'))[1:]  # Cut headers
+    # Rows format: 0 - id, 1 - isbn, 2 - authors, 3 - year, 4 - title, 5 - rating
+
+    # Sort by max rating (use "-" instead of reversing list)
     best_3 = s_sort(data, key=lambda row: -float(row[5].replace(',', '.')))[:3]
     for row in best_3:
         print(f'{row[4]} - {row[2]} - {row[5]}')

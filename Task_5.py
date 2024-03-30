@@ -16,7 +16,8 @@ def create_books_dict():
     :return: list of dicts
     """
     with open('books.txt', encoding='utf-8') as file:
-        data = list(csv.reader(file, delimiter='%'))[1:]
+        data = list(csv.reader(file, delimiter='%'))[1:]  # Cut headers
+    # Rows format: 0 - id, 1 - isbn, 2 - authors, 3 - year, 4 - title, 5 - rating
 
     result = {}
     for row in data:
